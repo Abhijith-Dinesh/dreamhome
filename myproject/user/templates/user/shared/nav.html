@@ -1,0 +1,45 @@
+ <!-- header section start -->
+ {% load static %}
+ <div class="header_section">
+    <div class="">
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="" href="{% static 'index.html' %}"><img width="120"  src="{% static 'images/dreahome logo.png' %}"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                   <a class="nav-link" href="{% url 'user_index' %}">Home</a>
+                </li>   
+                {% if User %} 
+                   welcome,{{User.yourname}}
+                {% else %}
+            
+                  
+                {% endif %}
+                  
+                <li class="nav-item">
+                   <a class="nav-link" href="{% url 'user_signin' %}">SignIn</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'user_signup' %}">register</a>
+               </li>
+               {% if user is not None %}
+                  <a class="nav-item nav-link" href="{% url 'user_logout' %}">LOGOUT</a>
+               {% endif %}
+                <li class="nav-item">
+                   <a class="nav-link" href="{% static 'services.html' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{% static 'projects.html' %}">Projects</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{% static 'contact.html' %}">Contact Us</a>
+                </li>
+             </ul>
+             <div class="search_icon"><a href="#"><img src="{% static 'images/search-icon.png' %}"></a></div>
+          </div>
+       </nav>
+    </div>
+ </div>
